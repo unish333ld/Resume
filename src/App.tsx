@@ -21,7 +21,7 @@ const resume = {
     { category: 'Мобильная разработка', skills: ['React Native', 'Expo'] },
     { category: 'Бэкенд', skills: ['Python', 'Django'] },
     { category: 'Базы данных', skills: ['PostgreSQL', 'MySQL'] },
-    { category: 'Инструменты и сборщики', skills: ['Vite', 'Postman'] },
+    { category: 'Инструменты и сборщики', skills: ['Vite', 'Postman','Git'] },
     { category: 'Пакетные менеджеры', skills: ['npm', 'Bun'] },
   ],
   education: [
