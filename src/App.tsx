@@ -15,28 +15,31 @@ const resume = {
     location: 'Россия, Санкт-Петербург',
   },
   photo: myPhoto,
-  about: 'Учусь на 4-м курсе колледжа по специальности «Информационные системы и программирование». Готовлюсь к поступлению в СПбПУ на заочную форму обучения по направлению «Программная инженерия». Параллельно участвую в стартапе студентов ИТМО — ООО «ПОЧИНИ.ОНЛАЙН», помогаю с frontend-частью проекта, а также изучаю React, Expo (React Native) и TypeScript.',
+  about: 'Начинающий Backend-разработчик на Python. Выпускник СПО по специальности "Информационные системы и программирование" (АУГСГиП, 2026 г.). Продолжаю обучение в СПбПУ по направлению "Информационные системы и технологии" (заочная форма). Имею практический опыт разработки: участвую в студенческом стартапе ИТМО (ООО "ПОЧИНИ.ОНЛАЙН") в роли Frontend-разработчика, что позволяет понимать мне полный цикл разработки.',
   hardSkills: [
-    { category: 'Фронтенд', skills: ['React', 'Vue.js', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Bootstrap 5', 'Ant Design'] },
+    { category: 'Backend', skills: ['Python', 'Django', 'FastAPI', 'PostgreSQL', 'MySQL'] },
+    { category: 'Frontend', skills: ['React', 'Vue.js', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Bootstrap 5', 'Ant Design'] },
     { category: 'Мобильная разработка', skills: ['React Native', 'Expo'] },
-    { category: 'Бэкенд', skills: ['Python', 'Django'] },
-    { category: 'Базы данных', skills: ['PostgreSQL', 'MySQL'] },
-    { category: 'Инструменты и сборщики', skills: ['Vite', 'Postman','Git'] },
-    { category: 'Пакетные менеджеры', skills: ['npm', 'Bun'] },
+    { category: 'Инструменты и среды', skills: ['Vite', 'Postman', 'Git', 'npm', 'Bun'] },
   ],
   education: [
     {
       institution: 'АУГСГиП',
-      degree: 'Среднее профессиональное образование, специальность «Информационные системы и программирование»',
-      period: '4 курс, очная форма',
+      degree: 'Среднее профессиональное образование, специальность "Информационные системы и программирование"',
+      period: '2022-2026',
+    },
+    {
+      institution: 'СПбПУ',
+      degree: 'Высшее образование (Бакалавриат), специальность "Информационные системы и технологии"',
+      period: '1 курс, заочная форма',
     },
   ],
   experience: [
     {
-      company: 'ООО "ПОЧИНИ.ОНЛАЙН" • Стартап',
+      company: 'ООО "ПОЧИНИ.ОНЛАЙН"',
       role: 'Frontend-разработчик',
-      period: '2025 — по настоящее время',
-      description: 'Разработка мобильного приложения на Expo (React Native), интеграция с REST API по документации Swagger, верстка кросс-платформенных интерфейсов.',
+      period: '2025 — 2026',
+      description: 'Разработка мобильного приложения на Expo (React Native), интеграция с REST API, верстка кросс-платформенных интерфейсов.',
     },
   ],
 }
@@ -140,7 +143,7 @@ export default function App() {
             />
             <div>
               <h1 className={`text-lg sm:text-2xl font-bold ${t.name}`}>{resume.name}</h1>
-              <p className={`text-xs font-medium ${t.accent} mt-0.5 job-title`}>Frontend Developer</p>
+              <p className={`text-xs font-medium ${t.accent} mt-0.5 job-title`}>Backend Python Developer</p>
               <div className={`flex flex-col sm:flex-row flex-wrap gap-x-4 gap-y-1 mt-2 text-xs ${t.text} contacts-row`}>
                 <a href={`https://t.me/${resume.contacts.telegram.replace('@', '')}`} target="_blank" className="flex items-center gap-1 hover:opacity-70 transition-opacity">
                   <img src={tgIcon} alt="Telegram" className="w-4 h-4 contact-icon" />
@@ -171,7 +174,7 @@ export default function App() {
               <p className={`${t.text} text-sm leading-relaxed`}>{resume.about}</p>
             </Section>
 
-            <Section title="Работаю с" t={t}>
+            <Section title="Работал с" t={t}>
               <div className="space-y-4">
                 {resume.hardSkills.map((group, i) => (
                   <div key={i}>
