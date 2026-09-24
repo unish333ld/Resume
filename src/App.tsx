@@ -15,12 +15,11 @@ const resume = {
     location: 'Россия, Санкт-Петербург',
   },
   photo: myPhoto,
-  about: 'Начинающий Backend-разработчик на Python. Выпускник СПО по специальности "Информационные системы и программирование" (АУГСГиП, 2026 г.). Продолжаю обучение в СПбПУ по направлению "Информационные системы и технологии" (заочная форма). Имею практический опыт разработки: участвую в студенческом стартапе ИТМО (ООО "ПОЧИНИ.ОНЛАЙН") в роли Frontend-разработчика, что позволяет понимать мне полный цикл разработки.',
+  about: 'Начинающий Backend-разработчик на Python. Выпускник СПО по специальности "Информационные системы и программирование" (АУГСГиП, 2026 г.). Продолжаю обучение в СПбПУ по направлению "Информационные системы и технологии" (заочная форма). Имею практический опыт разработки и понимаю полный цикл создания приложений.',
   hardSkills: [
-    { category: 'Backend', skills: ['Python', 'Django', 'FastAPI', 'PostgreSQL', 'MySQL'] },
+    { category: 'Backend', skills: ['Python', 'Django', 'FastAPI', 'Litestar', 'PostgreSQL', 'MySQL', 'Docker'] },
     { category: 'Frontend', skills: ['React', 'Vue.js', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Bootstrap 5', 'Ant Design'] },
     { category: 'Мобильная разработка', skills: ['React Native', 'Expo'] },
-    { category: 'Инструменты и среды', skills: ['Vite', 'Postman', 'Git', 'npm', 'Bun'] },
   ],
   education: [
     {
@@ -38,8 +37,8 @@ const resume = {
     {
       company: 'ООО "ПОЧИНИ.ОНЛАЙН"',
       role: 'Frontend-разработчик',
-      period: '2025 — 2026',
-      description: 'Разработка мобильного приложения на Expo (React Native), интеграция с REST API, верстка кросс-платформенных интерфейсов.',
+      period: 'июль 2025 — сентябрь 2026',
+      description: 'Разрабатывал распределённую платформу на микросервисной архитектуре: backend на Python/Litestar, API Gateway/BFF, сервисы продуктов, чатов и медиа. Реализовывал REST и WebSocket API, межсервисное взаимодействие по HTTP, работу с PostgreSQL и Redis. Участвовал в создании frontend-приложения на React Native/Expo. Настраивал контейнеризацию и GitLab CI/CD.',
     },
   ],
 }
