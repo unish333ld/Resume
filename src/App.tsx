@@ -15,7 +15,7 @@ const resume = {
     location: 'Россия, Санкт-Петербург',
   },
   photo: myPhoto,
-  about: 'Начинающий Backend-разработчик на Python. Выпускник СПО по специальности "Информационные системы и программирование" (АУГСГиП, 2026 г.). Продолжаю обучение в СПбПУ по направлению "Информационные системы и технологии" (заочная форма). Имею практический опыт разработки и понимаю полный цикл создания приложений.',
+  about: 'Мотивированный Backend-разработчик на Python, которому интересно работать над новыми проектами и создавать полезные продукты. Готов постоянно учиться, осваивать новые технологии и развиваться в команде. Имею практический опыт Fullstack-разработки. Активно интересуюсь миром искусственного интеллекта, а в свободное время развиваюсь в криптовалютном трейдинге и слежу за новостным фоном рынка.',
   hardSkills: [
     { category: 'Backend', skills: ['Python', 'Django', 'FastAPI', 'Litestar', 'PostgreSQL', 'MySQL', 'Docker'] },
     { category: 'Frontend', skills: ['React', 'Vue.js', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Bootstrap 5', 'Ant Design'] },
@@ -36,9 +36,24 @@ const resume = {
   experience: [
     {
       company: 'ООО "ПОЧИНИ.ОНЛАЙН"',
-      role: 'Frontend-разработчик',
+      role: 'Fullstack-разработчик',
       period: 'июль 2025 — сентябрь 2026',
-      description: 'Разрабатывал распределённую платформу на микросервисной архитектуре: backend на Python/Litestar, API Gateway/BFF, сервисы продуктов, чатов и медиа. Реализовывал REST и WebSocket API, межсервисное взаимодействие по HTTP, работу с PostgreSQL и Redis. Участвовал в создании frontend-приложения на React Native/Expo. Настраивал контейнеризацию и GitLab CI/CD.',
+      details: [
+        'Участвовал в реализации MVP распределённой платформы на микросервисной архитектуре.',
+        'Разрабатывал frontend-часть на React Native/Expo и интегрировал её с REST API.',
+        'Реализовывал работу с медиа и интеграцию с медиасервисами.',
+        'Разрабатывал backend-сервисы на Python/Litestar, REST и WebSocket API, взаимодействие с PostgreSQL и Redis.',
+        'Оптимизировал код и участвовал в настройке контейнеризации и GitLab CI/CD.',
+      ],
+    },
+    {
+      company: 'Фриланс',
+      role: 'TypeScript-разработчик',
+      period: 'август 2026',
+      details: [
+        'Разработал бота для мессенджера MAX на TypeScript с использованием MAX API.',
+        'Реализовал систему, упрощающую работу с отчётностью водителей и логистов на предприятии.',
+      ],
     },
   ],
 }
@@ -98,26 +113,36 @@ export default function App() {
           body * { visibility: hidden; }
           #resume-card, #resume-card * { visibility: visible; color: black !important; }
           #resume-card .contact-icon { width: 10px !important; height: 10px !important; }
+          #resume-card .resume-photo,
+          #resume-card .vk-contact { display: none !important; }
           #resume-card .border-l-2 { border-color: black !important; }
           #resume-card {
             position: absolute;
             top: 0; left: 0;
             width: 100%;
-            padding: 8mm;
+            padding: 5mm;
             box-sizing: border-box;
             background: white !important;
             color: black !important;
             border: none !important;
             box-shadow: none !important;
-            font-size: 11px !important;
-            line-height: 1.4 !important;
+            font-size: 10px !important;
+            line-height: 1.25 !important;
           }
-          #resume-card h1 { font-size: 16px !important; }
-          #resume-card h2 { font-size: 12px !important; margin-bottom: 4px !important; padding-bottom: 2px !important; }
+          #resume-card h1 { font-size: 20px !important; }
+          #resume-card h2 { font-size: 11px !important; margin-bottom: 2px !important; padding-bottom: 1px !important; }
           #resume-card img { width: 64px !important; height: 64px !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
           #resume-card .contact-icon { width: 10px !important; height: 10px !important; }
           #resume-card .job-title { font-size: 10px !important; margin-top: 1px !important; }
           #resume-card .contacts-row { flex-direction: row !important; flex-wrap: wrap !important; gap: 8px !important; margin-top: 4px !important; }
+          #resume-card .resume-header { padding-top: 2mm !important; padding-bottom: 2mm !important; }
+          #resume-card .resume-content { padding-top: 2mm !important; padding-bottom: 2mm !important; }
+          #resume-card .resume-content > * + * { margin-top: 6px !important; }
+          #resume-card .resume-content h2 { margin-bottom: 2px !important; }
+          #resume-card .resume-content .space-y-4 > * + * { margin-top: 5px !important; }
+          #resume-card .resume-content .space-y-3 > * + * { margin-top: 4px !important; }
+          #resume-card .resume-content .space-y-2 > * + * { margin-top: 3px !important; }
+          #resume-card .resume-content .space-y-1 > * + * { margin-top: 1px !important; }
         }
       `}</style>
 
@@ -134,11 +159,11 @@ export default function App() {
 
         <div id="resume-card" className={`${t.card} rounded-2xl border overflow-hidden transition-colors duration-300`}>
 
-          <div className="flex items-center gap-4 sm:gap-5 px-4 sm:px-6 py-5 sm:py-6">
+          <div className="resume-header flex items-center gap-4 sm:gap-5 px-4 sm:px-6 py-4 sm:py-5">
             <img
               src={resume.photo}
               alt="Фото"
-              className={`w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover shrink-0 ${t.shadow}`}
+              className={`resume-photo w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover shrink-0 ${t.shadow}`}
             />
             <div>
               <h1 className={`text-lg sm:text-2xl font-bold ${t.name}`}>{resume.name}</h1>
@@ -148,7 +173,7 @@ export default function App() {
                   <img src={tgIcon} alt="Telegram" className="w-4 h-4 contact-icon" />
                   <span>{resume.contacts.telegram}</span>
                 </a>
-                <a href={resume.contacts.vk} target="_blank" className="flex items-center gap-1 hover:opacity-70 transition-opacity">
+                <a href={resume.contacts.vk} target="_blank" className="vk-contact flex items-center gap-1 hover:opacity-70 transition-opacity">
                   <img src={vkIcon} alt="VK" className="w-4 h-4 contact-icon" />
                   <span>VK</span>
                 </a>
@@ -165,16 +190,33 @@ export default function App() {
             </div>
           </div>
 
-          <div className={`h-px mx-4 sm:mx-6 ${t.divider}`} />
-
-          <div className="px-4 sm:px-6 py-5 sm:py-6 space-y-6 sm:space-y-8">
+          <div className="resume-content px-4 sm:px-6 py-4 sm:py-5 space-y-5 sm:space-y-6">
 
             <Section title="О себе" t={t}>
               <p className={`${t.text} text-sm leading-relaxed`}>{resume.about}</p>
             </Section>
 
-            <Section title="Работал с" t={t}>
+            <Section title="Опыт работы" t={t}>
               <div className="space-y-4">
+                {resume.experience.map((job, i) => (
+                  <div key={i} className={`border-l-2 ${t.accentBorder} pl-4`}>
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                      <div>
+                        <p className={`font-semibold ${t.textBold}`}>{job.role}</p>
+                        <p className={`${t.accent} text-sm`}>{job.company}</p>
+                      </div>
+                      <span className={`text-xs ${t.period} sm:whitespace-nowrap`}>{job.period}</span>
+                    </div>
+                    <ul className={`${t.text} text-sm mt-1 list-disc pl-5 space-y-1`}>
+                      {job.details.map((detail, j) => <li key={j}>{detail}</li>)}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </Section>
+
+            <Section title="Работал с" t={t}>
+              <div className="space-y-3">
                 {resume.hardSkills.map((group, i) => (
                   <div key={i}>
                     <p className={`text-xs font-semibold uppercase tracking-wider ${t.accent} mb-2`}>{group.category}</p>
@@ -189,7 +231,7 @@ export default function App() {
             </Section>
 
             <Section title="Образование" t={t}>
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {resume.education.map((edu, i) => (
                   <div key={i} className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
                     <div>
@@ -202,20 +244,11 @@ export default function App() {
               </div>
             </Section>
 
-            <Section title="Опыт работы" t={t}>
-              <div className="space-y-5">
-                {resume.experience.map((job, i) => (
-                  <div key={i} className={`border-l-2 ${t.accentBorder} pl-4`}>
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-                      <div>
-                        <p className={`font-semibold ${t.textBold}`}>{job.role}</p>
-                        <p className={`${t.accent} text-sm`}>{job.company}</p>
-                      </div>
-                      <span className={`text-xs ${t.period} sm:whitespace-nowrap`}>{job.period}</span>
-                    </div>
-                    <p className={`${t.text} text-sm mt-1`}>{job.description}</p>
-                  </div>
-                ))}
+            <Section title="Языки" t={t}>
+              <div className="space-y-1 text-sm">
+                <p className={t.text}><span className={`font-semibold ${t.textBold}`}>Английский</span> — Средний</p>
+                <p className={t.text}><span className={`font-semibold ${t.textBold}`}>Немецкий</span> — Начальный</p>
+                <p className={t.text}><span className={`font-semibold ${t.textBold}`}>Русский</span> — Родной</p>
               </div>
             </Section>
 
@@ -239,7 +272,7 @@ export default function App() {
 function Section({ title, children, t }: { title: string; children: React.ReactNode; t: typeof themes.dark }) {
   return (
     <div>
-      <h2 className={`text-base font-bold ${t.sectionTitle} border-b pb-1 mb-3 transition-colors duration-300`}>{title}</h2>
+      <h2 className={`text-base font-bold ${t.sectionTitle} border-b pb-1 mb-2 transition-colors duration-300`}>{title}</h2>
       {children}
     </div>
   )
