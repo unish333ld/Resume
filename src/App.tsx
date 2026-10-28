@@ -159,6 +159,7 @@ export default function App() {
           #resume-card .resume-content .space-y-3 > * + * { margin-top: 4px !important; }
           #resume-card .resume-content .space-y-2 > * + * { margin-top: 3px !important; }
           #resume-card .resume-content .space-y-1 > * + * { margin-top: 1px !important; }
+          #resume-card .education-section { break-before: page; }
         }
       `}</style>
 
@@ -266,6 +267,7 @@ export default function App() {
               </div>
             </Section>
 
+            <div className="education-section">
             <Section title="Образование" t={t}>
               <div className="space-y-2">
                 {resume.education.map((edu, i) => (
@@ -279,6 +281,8 @@ export default function App() {
                 ))}
               </div>
             </Section>
+
+            </div>
 
             <Section title="Языки" t={t}>
               <div className="space-y-1 text-sm">
