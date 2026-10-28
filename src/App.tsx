@@ -33,6 +33,22 @@ const resume = {
       period: '1 курс, заочная форма',
     },
   ],
+  hackathons: [
+    {
+      name: 'Альфа-Будущее Хакатон 2026',
+      team: 'fromZeroToHero',
+      track: 'Умный кредитный кабинет предпринимателя',
+      role: 'Team Lead / Full-Stack Developer',
+      period: '19–26 октября 2026',
+      repository: 'https://github.com/unish333ld/AlphaFutureHackathon2026',
+      stack: 'Python, Django REST framework, PostgreSQL, React, TypeScript, Docker, Git',
+      details: [
+        'Разрабатывал API и бизнес-логику на Django REST framework, модели PostgreSQL и тесты.',
+        'Распределял задачи в команде из трёх человек, принимал архитектурные решения и проводил код-ревью; при необходимости подменял участников команды.',
+        'Участвовал в создании прототипа кредитного кабинета с демонстрационными скорингом, подписанием договора и выдачей кредита.',
+      ],
+    },
+  ],
   experience: [
     {
       company: 'ООО "ПОЧИНИ.ОНЛАЙН"',
@@ -213,6 +229,26 @@ export default function App() {
                   </div>
                 ))}
               </div>
+            </Section>
+
+            <Section title="Хакатоны" t={t}>
+              {resume.hackathons.map((hackathon) => (
+                <div key={hackathon.name} className={`border-l-2 ${t.accentBorder} pl-4`}>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                    <div>
+                      <p className={`font-semibold ${t.textBold}`}>{hackathon.role}</p>
+                      <p className={`${t.accent} text-sm`}>{hackathon.name} · {hackathon.team}</p>
+                    </div>
+                    <span className={`text-xs ${t.period} sm:whitespace-nowrap`}>{hackathon.period}</span>
+                  </div>
+                  <p className={`${t.text} text-sm mt-1`}>Трек: {hackathon.track}</p>
+                  <ul className={`${t.text} text-sm mt-1 list-disc pl-5 space-y-1`}>
+                    {hackathon.details.map((detail) => <li key={detail}>{detail}</li>)}
+                  </ul>
+                  <p className={`${t.text} text-sm mt-1`}>Стек проекта: {hackathon.stack}</p>
+                  <a href={hackathon.repository} target="_blank" rel="noopener noreferrer" className={`${t.accent} text-sm hover:underline`}>Репозиторий проекта на GitHub</a>
+                </div>
+              ))}
             </Section>
 
             <Section title="Работал с" t={t}>
